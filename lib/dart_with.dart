@@ -1,4 +1,6 @@
 /// 学习 dart with使用
+/// 混入（mixin） 指的是可以将一个或多个类的功能添加到自己的类中，而无需继承这些类。
+/// 混入后可以调用这些类中的方法。Dart 中没有多继承，可以使用 混入（mixin）来避免多重继承会导致的问题。
 
 void main() {
   SourApple sourApple = new SourApple();

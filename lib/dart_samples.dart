@@ -43,7 +43,7 @@ void main() {
 
   foo = [];//可以改变value
 //  bar = [];//不能改变使用 final 标示的变量
-//  baz = [];//不能改变使用 final 标示的变量
+//  baz = [];//不能改变使用 const 标示的变量
 
   //int 和 double 都是 num 的子类
   int x = 1;

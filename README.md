@@ -14,3 +14,7 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+
+## Note
+1、[两分钟搭建 Flutter Android 开发环境.md](note/两分钟搭建 Flutter Android 开发环境.md)

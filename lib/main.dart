@@ -1,6 +1,9 @@
 /// 导入使用到的包
 import 'package:flutter/material.dart';
 
+import 'mvp/demo.dart';
+import 'mvpdemo/mvp.dart';
+
 /// 应用程序的主入口
 void main() => runApp(MyApp());
 
@@ -37,9 +40,12 @@ class _MyHomePageState extends State<MyHomePage> {
   //点击事件
   void _incrementCounter() {
     ///调用了setState方法之后就会执行build进行刷新
-    setState(() {
-      _counter++;
-    });
+//    setState(() {
+//      _counter++;
+//    });
+
+//    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => MainScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DemoPage()));
   }
 
   @override

@@ -8,6 +8,7 @@ import 'package:flutter_free/widgets/click_item.dart';
 import 'package:flutter_free/widgets/exit_dialog.dart';
 
 import 'cache_page.dart';
+import 'device_page.dart';
 
 class SettingPage extends StatefulWidget {
   @override
@@ -36,7 +37,8 @@ class _SettingPageState extends State<SettingPage> {
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => CachePage()))
           ),
           ClickItem(
-            title: "夜间模式",
+            title: "设备信息",
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => DevicePage()))
           ),
           ClickItem(
             title: "隐私",

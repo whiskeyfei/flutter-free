@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 
 import 'mvp/demo.dart';
-import 'mvpdemo/mvp.dart';
 
 /// 应用程序的主入口
 void main() => runApp(MyApp());

@@ -312,13 +312,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.9.6+3"
-  mvp:
-    dependency: "direct dev"
-    description:
-      name: mvp
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   node_interop:
     dependency: transitive
     description:

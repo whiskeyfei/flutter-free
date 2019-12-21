@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_free/mvp/ibasepresenter.dart';
 
-import 'ibasestate.dart';
-import 'ibaseview.dart';
-import 'ipresenter.dart';
+import 'lib_mvp.dart';
 
 class MainModel {
   MainModel({this.counter = 0});
@@ -16,21 +13,17 @@ class DemoPage extends StatefulWidget {
   State<StatefulWidget> createState() {
     return DemoPageState();
   }
-
 }
 
 class IDemoPresenter implements IPresenter {
-  void incrementButtonClick(){
-
-  }
+  void incrementButtonClick() {}
 }
 
 abstract class IDemoView implements IBaseView {
   void printTodo();
 }
 
-class DemoPresenter extends BasePresenter<MainModel,IDemoView> implements IDemoPresenter{
-
+class DemoPresenter extends BasePresenter<MainModel, IDemoView> implements IDemoPresenter {
   DemoPresenter(IBaseView view, MainModel viewModel) : super(view, viewModel);
 
   @override
@@ -39,28 +32,18 @@ class DemoPresenter extends BasePresenter<MainModel,IDemoView> implements IDemoP
     updateState(viewModel);
     mView?.printTodo();
   }
-
 }
 
-class DemoPageState extends IBaseState<DemoPage,MainModel> implements IDemoView{
+class DemoPageState extends IBaseState<DemoPage, MainModel, DemoPresenter> implements IDemoView {
 
-  DemoPresenter _presenter;
-
-  DemoPageState() {
-    viewModel = MainModel();
-    _presenter = DemoPresenter(this, viewModel);
+  @override
+  createPresenter() {
+    return DemoPresenter(this, new MainModel());
   }
 
   @override
-  void initState() {
-    super.initState();
-    _presenter?.subscribe(applyState);
-  }
+  init() {
 
-  @override
-  void dispose() {
-    super.dispose();
-    _presenter?.unSubscribe();
   }
 
   @override
@@ -82,7 +65,7 @@ class DemoPageState extends IBaseState<DemoPage,MainModel> implements IDemoView{
               'You have pushed the button this many times:',
             ),
             Text(
-              "${viewModel.counter}",
+              "${viewModel?.counter}",
               style: Theme.of(context).textTheme.display1,
             ),
           ],
@@ -90,12 +73,11 @@ class DemoPageState extends IBaseState<DemoPage,MainModel> implements IDemoView{
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _presenter.incrementButtonClick();
+          presenter.incrementButtonClick();
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
     );
   }
-
 }

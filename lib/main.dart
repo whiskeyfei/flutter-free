@@ -1,10 +1,25 @@
+import 'dart:io';
+
 /// 导入使用到的包
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'mvp/demo.dart';
+import 'setting/about_page.dart';
+import 'setting/setting_page.dart';
 
 /// 应用程序的主入口
-void main() => runApp(MyApp());
+
+void main(){
+  runApp(MyApp());
+
+  // 透明状态栏
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle systemUiOverlayStyle =
+    SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
+}
 
 class MyApp extends StatelessWidget {
   // 应用程序的跟 Widget
@@ -19,7 +34,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       ///首页
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SettingPage(),
     );
   }
 }

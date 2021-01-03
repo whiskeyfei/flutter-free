@@ -1,8 +1,13 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_free/res/colors.dart';
+import 'package:flutter_free/routers/application.dart';
 import 'package:flutter_free/setting/about_page.dart';
 import 'package:flutter_free/setting/privacy_page.dart';
+import 'package:flutter_free/setting/set_router.dart';
 import 'package:flutter_free/utils/gaps.dart';
+import 'package:flutter_free/utils/launch_utils.dart';
+import 'package:flutter_free/webview/webview_page.dart';
 import 'package:flutter_free/widgets/app_bar.dart';
 import 'package:flutter_free/widgets/click_item.dart';
 import 'package:flutter_free/widgets/exit_dialog.dart';
@@ -42,7 +47,14 @@ class _SettingPageState extends State<SettingPage> {
           ),
           ClickItem(
             title: "隐私",
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PrivacyPage()))
+            // onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => PrivacyPage()))
+            onTap: (){
+              Application.router.navigateTo(context, SetRouter.privacyPage,transition: TransitionType.none);
+              // Application.router.navigateTo(context, "/setting/privacyPage?isAdd=false");
+              // Application.router.navigateTo(context, "/setting/privacyPage?isAdd=false").then((result) {
+              //   print("result:$result");
+              // });
+            },
           ),
           ClickItem(
             title: "检查更新",
@@ -61,6 +73,20 @@ class _SettingPageState extends State<SettingPage> {
                 );
               }
           ),
+          ClickItem(
+              title: "调用电话",
+              onTap: () {
+                // LaunchUtils.launchTelURL("188181818");
+                LaunchUtils.launchEmailURL('aaaaa@qq.com',queryParameters: {
+                  'subject': 'Example Subject & Symbols are allowed!'
+                });
+              }
+          ),
+          ClickItem(
+              title: "webview",
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WebViewPage(url: "https://flutterchina.club/",)))
+          ),
+
         ],
       ),
     );

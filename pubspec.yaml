@@ -18,6 +18,8 @@ dependencies:
 
   #json 相关
   json_annotation: ^2.0.0
+  url_launcher: 5.7.10
+  webview_flutter: 0.3.16
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -25,6 +27,9 @@ dependencies:
 
   # 新添加的依赖
   english_words: ^3.1.3
+
+  # 路由
+  fluro: 1.7.8
 
 #开发环境依赖的工具包
 dev_dependencies:

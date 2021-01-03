@@ -1,16 +1,23 @@
 import 'dart:io';
 
+import 'package:fluro/fluro.dart';
 /// 导入使用到的包
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'mvp/demo.dart';
+import 'routers/application.dart';
+import 'routers/routes.dart';
 import 'setting/about_page.dart';
 import 'setting/setting_page.dart';
 
 /// 应用程序的主入口
 
 void main(){
+  final router = FluroRouter();
+  Routes.configureRoutes(router);
+  Application.router = router;
+
   runApp(MyApp());
 
   // 透明状态栏
